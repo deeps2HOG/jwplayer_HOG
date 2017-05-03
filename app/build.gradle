@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion 23
-	buildToolsVersion "23.0.1"
+	buildToolsVersion '25.0.0'
 
 	defaultConfig {
 		applicationId "com.jwplayer.opensourcedemo"
@@ -17,6 +17,9 @@ android {
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 		}
 	}
+    packagingOptions {
+        exclude 'jsr305_annotations/Jsr305_annotations.gwt.xml'
+    }
 }
 
 dependencies {
@@ -26,6 +29,8 @@ dependencies {
 	compile 'com.android.support:design:23.3.0'
 	compile 'com.longtailvideo.jwplayer:jwplayer-core:+'
 	compile 'com.longtailvideo.jwplayer:jwplayer-common:+'
-//	compile 'com.longtailvideo.jwplayer:jwplayer-ima:+'        // Only required if using IMA features
+	compile 'com.longtailvideo.jwplayer:jwplayer-ima:+'        // Only required if using IMA features
 	compile 'com.longtailvideo.jwplayer:jwplayer-chromecast:+' // Only required if using Chromecast
+
+   //removed 2 compile lines from google ima google doc...its there in our HOG code
 }

@@ -14,7 +14,7 @@ import com.longtailvideo.jwplayer.JWPlayerSupportFragment;
 import com.longtailvideo.jwplayer.JWPlayerView;
 import com.longtailvideo.jwplayer.configuration.PlayerConfig;
 
-public class JWPlayerFragmentExample extends AppCompatActivity {
+public class    JWPlayerFragmentExample extends AppCompatActivity {
 
     /**
      * A reference to the {@link JWPlayerSupportFragment}.

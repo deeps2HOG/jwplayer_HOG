@@ -13,8 +13,15 @@ import android.widget.TextView;
 
 import com.longtailvideo.jwplayer.JWPlayerView;
 import com.longtailvideo.jwplayer.cast.CastManager;
+import com.longtailvideo.jwplayer.configuration.PlayerConfig;
 import com.longtailvideo.jwplayer.events.listeners.VideoPlayerEvents;
+import com.longtailvideo.jwplayer.media.ads.Ad;
+import com.longtailvideo.jwplayer.media.ads.AdBreak;
+import com.longtailvideo.jwplayer.media.ads.AdSource;
 import com.longtailvideo.jwplayer.media.playlists.PlaylistItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class JWPlayerViewExample extends AppCompatActivity implements VideoPlayerEvents.OnFullscreenListener {
 
@@ -58,16 +65,58 @@ public class JWPlayerViewExample extends AppCompatActivity implements VideoPlaye
 		// Instantiate the JW Player event handler class
 		mEventHandler = new JWEventHandler(mPlayerView, outputTextView);
 
+		//mPlayerView.setup({modes:[]});
+
+
+		// Construct a new Ad
+	  //  Ad ad = new Ad(AdSource.IMA, "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=");
+		Ad ad = new Ad(AdSource.IMA, "https://googleads.g.doubleclick.net/pagead/ads?ad_type=standardvideo&client=ca-video-pub-4496925157207714&description_url=https%3A%2F%2Fshop.houseofgod.co%2F&hl=en&max_ad_duration=30000");
+
+
+// Construct a new AdBreak containing the Ad
+// This AdBreak will play a midroll at 10%
+		AdBreak adBreak = new AdBreak("10%", ad);
+
+// Add the AdBreak to a List
+		List<AdBreak> adSchedule = new ArrayList<>();
+		adSchedule.add(adBreak);
+
+
+
+
+
 		// Load a media source
 		PlaylistItem pi = new PlaylistItem.Builder()
 				.file("http://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8")
 				.title("BipBop")
 				.description("A video player testing video.")
+				.adSchedule(adSchedule)
 				.build();
-		mPlayerView.load(pi);
 
-		// Get a reference to the CastManager
-		mCastManager = CastManager.getInstance();
+
+
+
+		// Add the PlaylistItem to a List
+		List<PlaylistItem> playlist = new ArrayList<>();
+		playlist.add(pi);
+
+// Build the PlayerConfig
+		PlayerConfig playerConfig = new PlayerConfig.Builder()
+				.playlist(playlist)
+				.build();
+
+// Setup the player
+		mPlayerView.setup(playerConfig);
+
+
+
+
+
+		//In original code (from github) but in doc it's .setup()
+		//mPlayerView.load(pi);
+
+		// Get a reference to the CastManager TODO IMP - inside original github but not in jw player doc
+		//mCastManager = CastManager.getInstance();
 	}
 
 	@Override
@@ -134,7 +183,7 @@ public class JWPlayerViewExample extends AppCompatActivity implements VideoPlaye
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_jwplayerview, menu);
 		// Register the MediaRouterButton on the JW Player SDK
-		mCastManager.addMediaRouterButton(menu, R.id.media_route_menu_item);
+//		mCastManager.addMediaRouterButton(menu, R.id.media_route_menu_item);
 		return true;
 	}
 
