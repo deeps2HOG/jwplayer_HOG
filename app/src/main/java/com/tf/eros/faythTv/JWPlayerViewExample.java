@@ -1,4 +1,4 @@
-package com.jwplayer.opensourcedemo;
+package com.tf.eros.faythTv;
 
 import android.content.Intent;
 import android.content.res.Configuration;

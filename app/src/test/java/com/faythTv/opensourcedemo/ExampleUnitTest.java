@@ -1,4 +1,4 @@
-package com.jwplayer.opensourcedemo;
+package com.faythTv.opensourcedemo;
 
 import org.junit.Test;
 

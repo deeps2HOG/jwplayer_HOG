@@ -1,4 +1,4 @@
-package com.jwplayer.opensourcedemo;
+package com.faythTv.opensourcedemo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
