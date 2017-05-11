@@ -32,5 +32,7 @@ dependencies {
 	compile 'com.longtailvideo.jwplayer:jwplayer-ima:+'        // Only required if using IMA features
 	compile 'com.longtailvideo.jwplayer:jwplayer-chromecast:+' // Only required if using Chromecast
 
+	compile 'com.github.pedrovgs:draggablepanel:1.9'
+
    //removed 2 compile lines from google ima google doc...its there in our HOG code
 }

@@ -50,11 +50,11 @@ public class JWPlayerViewExample extends AppCompatActivity implements VideoPlaye
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_jwplayerview);
+   		setContentView(R.layout.activity_jwplayerview);
 		mPlayerView = (JWPlayerView)findViewById(R.id.jwplayer);
-		TextView outputTextView = (TextView)findViewById(R.id.output);
+		TextView outputTextView = (TextView)findViewById(R.id.output2);
 
-		mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.activity_jwplayerview);
+		//mCoordinatorLayout = (CoordinatorLayout) findViewById(R.id.activity_jwplayerview);
 
 		// Handle hiding/showing of ActionBar
 		mPlayerView.addOnFullscreenListener(this);
@@ -176,7 +176,7 @@ public class JWPlayerViewExample extends AppCompatActivity implements VideoPlaye
 		}
 
 		// When going to Fullscreen we want to set fitsSystemWindows="false"
-		mCoordinatorLayout.setFitsSystemWindows(!fullscreen);
+		//mCoordinatorLayout.setFitsSystemWindows(!fullscreen);
 	}
 
 	@Override
