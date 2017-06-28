@@ -1,38 +1,60 @@
-<android.support.design.widget.CoordinatorLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_jwplayerview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:background="@color/gray">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/gray"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <com.longtailvideo.jwplayer.JWPlayerView
             android:id="@+id/jwplayer"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="200dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/output"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingLeft="16dp"
                 android:paddingTop="16dp"
                 android:textColor="@color/white" />
 
+            <EditText
+                android:id="@+id/media_url"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/output"
+                android:paddingLeft="8dp"
+                android:hint="Click to enter the media URL and press submit"/>
+
+            <Button
+                android:id="@+id/submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/media_url"
+                android:layout_centerHorizontal="true"
+                android:text="SUBMIT"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/submit"
+                android:textColor="#ffffff"
+                android:padding="8dp"
+                android:text="After clicking submit wait for some time and press the play icon on the player. Sometimes play icon takes time to appear. In that case click on the player screen to start the playback"/>
+
         </RelativeLayout>
     </LinearLayout>
-</android.support.design.widget.CoordinatorLayout>
+</ScrollView>
