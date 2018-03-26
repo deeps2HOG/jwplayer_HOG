@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.longtailvideo.jwplayer.JWPlayerView;
-import com.longtailvideo.jwplayer.cast.CastManager;
 import com.longtailvideo.jwplayer.configuration.PlayerConfig;
 import com.longtailvideo.jwplayer.events.listeners.VideoPlayerEvents;
 import com.longtailvideo.jwplayer.media.ads.Ad;
@@ -37,11 +36,6 @@ public class JWPlayerViewExample extends AppCompatActivity implements VideoPlaye
 	 * An instance of our event handling class
 	 */
 	private JWEventHandler mEventHandler;
-
-	/**
-	 * Reference to the {@link CastManager}
-	 */
-	private CastManager mCastManager;
 
 	/**
 	 * Stored instance of CoordinatorLayout

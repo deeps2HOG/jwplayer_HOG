@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-	compileSdkVersion 23
-	buildToolsVersion '25.0.0'
+	compileSdkVersion 25
+	buildToolsVersion '26.0.2'
 
 	defaultConfig {
 		applicationId "com.jwplayer.opensourcedemo"
 		minSdkVersion 16
-		targetSdkVersion 23
+		targetSdkVersion 25
 		versionCode 1
 		versionName "1.0"
 	}
@@ -25,12 +25,15 @@ android {
 dependencies {
 	compile fileTree(include: ['*.jar'], dir: 'libs')
 	testCompile 'junit:junit:4.12'
-	compile 'com.android.support:appcompat-v7:23.1.0'
-	compile 'com.android.support:design:23.3.0'
+	compile 'com.android.support:appcompat-v7:25.0.0'
+	compile 'com.android.support:design:25.0.0'
 	compile 'com.longtailvideo.jwplayer:jwplayer-core:+'
 	compile 'com.longtailvideo.jwplayer:jwplayer-common:+'
-	compile 'com.longtailvideo.jwplayer:jwplayer-ima:+'        // Only required if using IMA features
-	compile 'com.longtailvideo.jwplayer:jwplayer-chromecast:+' // Only required if using Chromecast
+	compile ('com.longtailvideo.jwplayer:jwplayer-ima:+') {        // Only required if using IMA features
+		exclude group: "com.google.android.gms"  //not in jw
+	}
+	//compile 'com.longtailvideo.jwplayer:jwplayer-chromecast:+' // Only required if using Chromecast
+
 
    //removed 2 compile lines from google ima google doc...its there in our HOG code
 }
