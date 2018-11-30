@@ -25,9 +25,6 @@
         <meta-data
             android:name="JW_LICENSE_KEY"
             android:value="ulTD/RsOTEj96R4nlWISXQMhDuzlD5yObrmsFhpNUARNw/Vj" />
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="12210000" />
     </application>
 
 </manifest>

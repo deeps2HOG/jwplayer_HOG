@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-	compileSdkVersion 25
-	buildToolsVersion '26.0.2'
+	compileSdkVersion 28
 
 	defaultConfig {
 		applicationId "com.jwplayer.opensourcedemo"
-		minSdkVersion 16
-		targetSdkVersion 25
+		minSdkVersion 19
+		targetSdkVersion 28
 		versionCode 1
 		versionName "1.0"
 	}
@@ -19,21 +18,35 @@ android {
 	}
     packagingOptions {
         exclude 'jsr305_annotations/Jsr305_annotations.gwt.xml'
+        exclude 'META-INF/android.arch.lifecycle_runtime.version'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
     }
 }
 
 dependencies {
 	compile fileTree(include: ['*.jar'], dir: 'libs')
-	testCompile 'junit:junit:4.12'
-	compile 'com.android.support:appcompat-v7:25.0.0'
-	compile 'com.android.support:design:25.0.0'
-	compile 'com.longtailvideo.jwplayer:jwplayer-core:+'
-	compile 'com.longtailvideo.jwplayer:jwplayer-common:+'
-	compile ('com.longtailvideo.jwplayer:jwplayer-ima:+') {        // Only required if using IMA features
-		exclude group: "com.google.android.gms"  //not in jw
+	testImplementation'junit:junit:4.12'
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:customtabs:28.0.0'
+    implementation 'com.android.support:animated-vector-drawable:28.0.0'
+    implementation 'com.android.support:exifinterface:28.0.0'
+
+	implementation 'com.longtailvideo.jwplayer:jwplayer-core:2.9.0+47'
+	implementation 'com.longtailvideo.jwplayer:jwplayer-common:2.9.0+47'
+	implementation('com.longtailvideo.jwplayer:jwplayer-ima:2.9.0+47') {
+		//exclude group: "com.google.android.gms"  //not in jw
 	}
-	//compile 'com.longtailvideo.jwplayer:jwplayer-chromecast:+' // Only required if using Chromecast
-
-
-   //removed 2 compile lines from google ima google doc...its there in our HOG code
 }
